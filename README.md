@@ -23,7 +23,7 @@ Site estático, sem build e sem JavaScript:
 
 | Arquivo | O que é |
 |---|---|
-| `index.html` | a página inteira (âncoras `#oque`, `#processo`, `#ganho`, `#direcao`) |
+| `index.html` | a página inteira (âncoras `#oque`, `#processo`, `#ganho`, `#porque`) |
 | `assets/styles.css` | tokens de cor, tipografia, grades e adaptação a telas estreitas |
 | `assets/fonts/newsreader-normal-400_700.woff2` | única família, subset latino, self-hosted |
 | `assets/seal.svg` | favicon e monograma |
