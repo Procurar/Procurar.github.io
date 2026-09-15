@@ -34,8 +34,15 @@ Regras do desenho, para não regredir:
 - **Uma** família tipográfica (Newsreader), papel claro, sem gradiente, sem
   inverter cor de fundo em nenhuma faixa.
 - **Uma** ação na página: o botão de e-mail na barra (fixa).
+- **Sem caixas e sem réguas de seção.** A estrutura é feita por tipografia e
+  espaço, como num jornal: hierarquia grande (título -> linha de apoio -> texto),
+  itens posicionados em colunas. As únicas linhas que existem são a régua grossa
+  do masthead, a borda da folha da peça e a régua do rodapé.
+- **Colunas de verdade** onde o texto é longo: os cinco passos de "Como o clone
+  é feito" correm em `columns:2`; os blocos de "O que é" e "Por que Procurar"
+  são colunas de grade, não cartões.
 - Tudo dentro da coluna de conteúdo: hero, artefato, seções e rodapé começam no
-  mesmo eixo; as réguas de seção também.
+  mesmo eixo.
 - O artefato é um fragmento de peça **estilizado** (sem dado de cliente) com
   notas de margem numeradas; a nota e o trecho se acendem juntos no hover, no
   foco do teclado e no clique (`:has()` + `:target`, sem JavaScript).
