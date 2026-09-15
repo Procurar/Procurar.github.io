@@ -3,532 +3,155 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Procurar — automação da montagem de peças jurídicas</title>
-<meta name="description" content="Produtos de automação para o serviço jurídico: um clone do advogado que aprende os modelos, as teses e o estilo da casa, busca o fundamento vigente, calcula, confere e entrega a peça em .docx.">
-<meta name="theme-color" content="#12110f">
+<title>Procurar — um clone do advogado</title>
+<meta name="description" content="Produtos de automação para o serviço jurídico: um sistema que aprende os modelos de peça, as teses e o estilo da casa, busca o fundamento vigente, calcula, confere e entrega a peça em .docx.">
+<meta name="theme-color" content="#f7f5f0">
 <link rel="icon" href="assets/seal.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/newsreader-normal-400_700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/instrument-serif-normal-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/styles.css">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://procurar.github.io/">
-<meta property="og:title" content="Procurar — automação da montagem de peças jurídicas">
-<meta property="og:description" content="Um clone do advogado: pipeline de 14 estágios, RAG sobre fontes oficiais e LLM que redige sob gate de protocolo. O motor não tem matéria — o MVP é o contencioso trabalhista.">
+<meta property="og:title" content="Procurar — um clone do advogado">
+<meta property="og:description" content="O sistema aprende a peça, a tese e o estilo da casa. Lê o caso, busca o fundamento vigente, calcula, confere e entrega. Quem assina é o advogado.">
 <meta property="og:image" content="https://procurar.github.io/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Procurar","url":"https://procurar.github.io/","sameAs":["https://github.com/Procurar"],"description":"Produtos de automação para o serviço jurídico: montagem de peças, fundamento com vigência conferida e gates de protocolo."}
+{"@context":"https://schema.org","@type":"Organization","name":"Procurar","url":"https://procurar.github.io/","sameAs":["https://github.com/Procurar"],"description":"Produtos de automação para o serviço jurídico."}
 </script>
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<div class="guides" aria-hidden="true"></div>
 
-<header class="topbar">
-  <div class="wrap topbar__inner">
-    <a class="brand" href="#topo">
-      <svg class="seal" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-<circle cx="32" cy="32" r="25" fill="none" stroke="currentColor" stroke-width="1.5"/>
-<circle cx="32" cy="32" r="20.5" fill="none" stroke="currentColor" stroke-width="0.75" opacity="0.55"/>
-<text x="32" y="43.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="31" fill="currentColor">P</text>
-</svg>
-      <span class="brand__name">Procurar</span>
-      <span class="brand__tag">engenharia de peças</span>
-    </a>
-    <nav class="nav" aria-label="Seções">
-      <a href="#gargalo">O gargalo</a>
-      <a href="#pipeline">Pipeline</a>
-      <a href="#inteligencia">Inteligência</a>
-      <a href="#jurisprudencia">Jurisprudência</a>
-      <a href="#garantias">Garantias</a>
-      <a href="#isolamento">Isolamento</a>
-      <a href="#direcao">Direção</a>
-    </nav>
-    <a class="btn btn--ghost topbar__cta" href="https://github.com/Procurar">GitHub</a>
+<header class="bar">
+  <div class="shell bar__grid">
+    <a class="brand" href="#topo">Procurar</a>
+    <a class="btn btn--solid" href="mailto:afa7789@gmail.com">Falar com a gente</a>
   </div>
 </header>
 
 <main id="conteudo">
-<section class="hero" id="topo">
-  <div class="hero__glow" aria-hidden="true"></div>
-  <div class="wrap hero__grid">
-    <div class="hero__copy">
-      <p class="eyebrow">aprendizado de máquina · RAG · LLM aplicados à peça jurídica</p>
-      <h1 class="display">
-        Um clone <em>do advogado</em>.
-      </h1>
+  <section class="hero" id="topo">
+    <div class="shell hero__grid">
+      <p class="kicker">automação do serviço jurídico</p>
+      <h1>Um clone do advogado.</h1>
       <p class="lede">
-        Não é um gerador de texto genérico. É um sistema que aprende os modelos de peça, as
-        teses e o estilo do próprio escritório — lê a pasta do caso, busca o fundamento
-        <strong>vigente</strong> na fonte oficial, calcula, confere o que foi pedido e
-        entrega o <code>.docx</code> no jeito da casa. O trabalho de montagem passa a ser
-        dele; o juízo sobre a causa continua sendo de quem assina.
+        Aprende os modelos de peça, as teses e o estilo da casa. Lê o caso, busca o
+        fundamento vigente, calcula, confere e entrega a peça em <code>.docx</code>.
+        Quem assina é o advogado.
       </p>
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="#pipeline">Ver o pipeline</a>
-        <a class="btn btn--ghost" href="#garantias">Como evitamos citação inventada</a>
-      </div>
-      <p class="hero__note">
-        Roda na máquina do escritório. O acervo não sai daqui.
-      </p>
-      <p class="hero__note hero__note--mark">
-        MVP em produção: contencioso trabalhista — 30 tipos de peça, 14 estágios, 15 gates.
-        O motor não tem matéria: o que muda de uma área para outra são os modelos de peça e
-        as fontes oficiais.
+      <p class="mark">MVP em produção: contencioso trabalhista · 30&nbsp;tipos de peça · o motor serve a qualquer matéria</p>
+    </div>
+
+  </section>
+
+  <section class="claim">
+    <div class="shell claim__grid">
+      <p class="kicker">um clone por escritório</p>
+      <p class="claim__text">
+        Os modelos de peça, o treinamento e o acervo são de cada escritório. A engenharia é
+        compartilhada; o clone, não — é o jeito da sua casa, e não um gerador genérico.
       </p>
     </div>
+  </section>
 
-  </div>
-
-  <div class="wrap">
-    <dl class="stats" aria-label="Números do sistema">
-      <div class="stat"><dt>tipos de peça</dt><dd>30</dd></div>
-      <div class="stat"><dt>estágios de pipeline</dt><dd>14</dd></div>
-      <div class="stat"><dt>gates de protocolo</dt><dd>15</dd></div>
-      <div class="stat"><dt>tools MCP</dt><dd>24</dd></div>
-      <div class="stat"><dt>jobs de jurisprudência</dt><dd>14</dd></div>
-    </dl>
-  </div>
-</section>
-<section class="band" id="gargalo">
-  <div class="wrap">
-    <p class="section-mark mono">§ 01 — o gargalo</p>
-    <h2 class="h2">O que o clone tira das costas do advogado.</h2>
-    <p class="lede lede--narrow">
-      O prazo não se perde na tese: perde-se na montagem. Achar a ata certa, conferir o que
-      foi efetivamente pedido, confirmar que o verbete continua vigente, refazer a memória de
-      cálculo quando o laudo muda, aplicar o estilo do escritório e reescrever o mesmo trecho
-      em três peças do mesmo caso. É trabalho repetitivo, verificável — e por isso
-      delegável a software.
-    </p>
-    <div class="cards">
-      <article class="card">
-        <p class="card__num mono">01</p>
-        <h3 class="card__title">Leitura documental</h3>
-        <p class="card__text">
-          Ata de audiência, documentos do caso e o documento de terceiro que a peça ataca
-          (contestação, laudo, sentença, acórdão) viram dado estruturado. Nada entra na peça
-          sem trecho de origem: a citação se ancora no que está nos autos, não no que o
-          modelo lembrou.
-        </p>
-      </article>
-      <article class="card">
-        <p class="card__num mono">02</p>
-        <h3 class="card__title">Fundamento com vigência</h3>
-        <p class="card__text">
-          Súmula, orientação jurisprudencial, tema repetitivo e cláusula de convenção coletiva
-          são buscados com teor oficial e status de vigência. Verbete cancelado ou superado
-          não vai para a peça.
-        </p>
-      </article>
-      <article class="card">
-        <p class="card__num mono">03</p>
-        <h3 class="card__title">Fechamento e forma</h3>
-        <p class="card__text">
-          Pedido, fato e prova têm de fechar entre si; o cálculo tem de ser coerente com a
-          regra aplicada; e o .docx tem de sair com o estilo do escritório, não com um
-          rascunho genérico.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-<section class="band" id="pipeline">
-  <div class="wrap">
-    <p class="section-mark mono">§ 02 — o pipeline</p>
-    <h2 class="h2">Quatorze estágios, cada um com um artefato em disco.</h2>
-    <p class="lede lede--narrow">
-      Nada fica implícito em conversa: cada estágio lê o anterior, escreve um arquivo e pode
-      ser reexecutado sozinho quando só uma parte do caso mudou. O que o advogado lê é o
-      dossiê; o que sai no fim é a peça. O pipeline abaixo é o do vertical trabalhista — a
-      espinha de estágios é a mesma para qualquer matéria.
-    </p>
-
-    <div class="pipeline-head" aria-hidden="true">
-      <span class="mono">#</span>
-      <span class="mono">estágio</span>
-      <span class="mono">o que faz</span>
-      <span class="mono">artefato</span>
-    </div>
-    <ol class="pipeline">
-      <li class="stage">
-        <span class="stage__num mono">1</span>
-        <span class="stage__name">fatos <span class="tag tag--gate">gate</span></span>
-        <span class="stage__text">Lê a pasta do caso (ata e documentos) e roda a conferência documental.</span>
-        <span class="stage__art mono">01_fatos.json</span>
-      </li>
-      <li class="stage">
-        <span class="stage__num mono">1.5</span>
-        <span class="stage__name">alvo </span>
-        <span class="stage__text">Isola o documento de terceiro que a peça vai enfrentar. Só nos grupos resposta e recursal.</span>
-        <span class="stage__art mono">01b_alvo.json</span>
-      </li>
-      <li class="stage">
-        <span class="stage__num mono">2</span>
-        <span class="stage__name">reclamada </span>
-        <span class="stage__text">Histórico do que já foi ajuizado contra a ré, apoiado no acervo do escritório.</span>
-        <span class="stage__art mono">02_reclamada.json</span>
-      </li>
-      <li class="stage">
-        <span class="stage__num mono">3</span>
-        <span class="stage__name">semelhantes </span>
-        <span class="stage__text">Casos parecidos por cargo e verbas. Só no grupo inicial.</span>
-        <span class="stage__art mono">03_semelhantes.json</span>
-      </li>
-      <li class="stage">
-        <span class="stage__num mono">3.5</span>
-        <span class="stage__name">similares kNN </span>
-        <span class="stage__text">Vizinhos mais próximos pelo perfil do caso.</span>
-        <span class="stage__art mono">03b_similares_knn.json</span>
-      </li>
-      <li class="stage">
-        <span class="stage__num mono">4</span>
-        <span class="stage__name">teses <span class="tag tag--gate">gate</span></span>
-        <span class="stage__text">Banco de teses e checklist por perfil profissional.</span>
-        <span class="stage__art mono">04_teses.json</span>
-      </li>
-      <li class="stage">
-        <span class="stage__num mono">5</span>
-        <span class="stage__name">citações <span class="tag tag--gate">gate</span></span>
-        <span class="stage__text">Sugestão de citação por verba, com teor oficial e vigência.</span>
-        <span class="stage__art mono">05_citacoes.json</span>
-      </li>
-      <li class="stage">
-        <span class="stage__num mono">6</span>
-        <span class="stage__name">CCT </span>
-        <span class="stage__text">Cláusulas aplicáveis da convenção coletiva da categoria.</span>
-        <span class="stage__art mono">06_cct.json</span>
-      </li>
-      <li class="stage">
-        <span class="stage__num mono">7</span>
-        <span class="stage__name">cálculos </span>
-        <span class="stage__text">Regras de cálculo e memória de cálculo, conferidas antes da entrega.</span>
-        <span class="stage__art mono">07_calculos.json</span>
-      </li>
-      <li class="stage">
-        <span class="stage__num mono">8</span>
-        <span class="stage__name">processual <span class="tag tag--gate">gate</span></span>
-        <span class="stage__text">Prescrição bienal e quinquenal, rito. Bloqueia em litispendência.</span>
-        <span class="stage__art mono">08_processual.json</span>
-      </li>
-      <li class="stage">
-        <span class="stage__num mono">9</span>
-        <span class="stage__name">dossiê </span>
-        <span class="stage__text">Funde os estágios anteriores no que o advogado lê.</span>
-        <span class="stage__art mono">09_dossie.json</span>
-      </li>
-      <li class="stage">
-        <span class="stage__num mono">10</span>
-        <span class="stage__name">esqueleto </span>
-        <span class="stage__text">O motor de peças monta a instrução e os slots do tipo escolhido.</span>
-        <span class="stage__art mono">esqueleto.md</span>
-      </li>
-      <li class="stage">
-        <span class="stage__num mono">11</span>
-        <span class="stage__name">redação <span class="tag tag--gate">gate</span></span>
-        <span class="stage__text">Slots preenchidos viram peça; o gate pré-.docx roda aqui.</span>
-        <span class="stage__art mono">peca.md</span>
-      </li>
-      <li class="stage">
-        <span class="stage__num mono">12</span>
-        <span class="stage__name">entrega <span class="tag tag--gate">gate</span></span>
-        <span class="stage__text">O .docx no estilo da casa, com o caminho de entrega registrado.</span>
-        <span class="stage__art mono">peca.docx</span>
-      </li>
-    </ol>
-
-    <div class="split">
-      <div class="split__col">
-        <h3 class="h3">Grupos de peça</h3>
-        <p class="body">
-          Casa tipo de peça não roda o pipeline inteiro: cada grupo declara os estágios que
-          lhe cabem, e a peça pode sobrepor a lista quando precisa.
-        </p>
-      </div>
-      <dl class="matrix">
-        <div class="matrix__row"><dt class="mono">inicial</dt><dd>13 estágios — da ata ao .docx</dd></div>
-        <div class="matrix__row"><dt class="mono">resposta</dt><dd>9 estágios — contestação, impugnações</dd></div>
-        <div class="matrix__row"><dt class="mono">recursal</dt><dd>10 estágios — recurso, contrarrazões, embargos</dd></div>
-        <div class="matrix__row"><dt class="mono">incidental</dt><dd>5 estágios — petições de execução e de juntada</dd></div>
-        <div class="matrix__row"><dt class="mono">extrajudicial</dt><dd>4 estágios — acordo, procuração, notificação</dd></div>
-      </dl>
-    </div>
-  </div>
-</section>
-<section class="band" id="inteligencia">
-  <div class="wrap">
-    <p class="section-mark mono">§ 03 — inteligência</p>
-    <h2 class="h2">Modelo com rédea curta e medição antes de promoção.</h2>
-    <p class="lede lede--narrow">
-      O modelo de linguagem redige dentro do esqueleto do tipo de peça: ele preenche slots
-      com o que o dossiê apurou, e a visão dele não alcança o gabarito do conjunto de
-      avaliação. Fora daí, aprendizado de máquina em tarefas estreitas — classificar,
-      extrair, ranquear — onde dá para medir erro.
-    </p>
-
-    <div class="split split--wide">
-      <div class="split__col">
-        <h3 class="h3">Aprende com o acervo da casa</h3>
-        <p class="body">
-          O clone não começa de um manual genérico: parte dos modelos de peça do escritório,
-          do banco de teses, do piso de citação praticado pela casa e do que já foi ajuizado
-          contra a mesma parte. A busca é híbrida — correspondência densa somada a lexical —
-          e o índice roda localmente. O reranking por modelo de linguagem é opcional e fica
-          desligado até haver medição que o justifique.
-        </p>
-        <h3 class="h3">Medição</h3>
-        <p class="body">
-          Cada rodada roda sobre um conjunto congelado de casos, com holdout separado. A
-          comparação é pareada, caso a caso, entre duas rodadas — a decisão de promover uma
-          mudança sai do delta medido, não da impressão de quem testou.
-        </p>
-      </div>
-      <div class="split__col">
-        <h3 class="h3">Seis modelos em produção</h3>
-        <dl class="ml">
-        <div class="ml__row">
-          <dt class="mono">classificador_fato_pedido</dt>
-          <dd>Classifica o fato narrado nos pedidos que ele sustenta.<span class="ml__consume">consumido por: alimenta a matriz fato ↔ pedido</span></dd>
-        </div>
-        <div class="ml__row">
-          <dt class="mono">classificador_pedido_codigo</dt>
-          <dd>Mapeia pedido em código interno.<span class="ml__consume">consumido por: estrutura das peças</span></dd>
-        </div>
-        <div class="ml__row">
-          <dt class="mono">ner_intake</dt>
-          <dd>Extrai entidades de atas e documentos na entrada do caso.<span class="ml__consume">consumido por: intake</span></dd>
-        </div>
-        <div class="ml__row">
-          <dt class="mono">teses_por_perfil</dt>
-          <dd>Seleciona as teses aplicáveis ao perfil do caso.<span class="ml__consume">consumido por: estágio 4 — teses</span></dd>
-        </div>
-        <div class="ml__row">
-          <dt class="mono">reranker_dominio</dt>
-          <dd>Reordena os resultados da busca pelo domínio do escritório.<span class="ml__consume">consumido por: RAG</span></dd>
-        </div>
-        <div class="ml__row">
-          <dt class="mono">finetune_embeddings</dt>
-          <dd>Ajusta o modelo de embeddings ao vocabulário do acervo.<span class="ml__consume">consumido por: RAG</span></dd>
-        </div>
-        </dl>
+  <section class="sec" id="oque">
+    <div class="shell">
+      <header class="sec__head">
+        <span class="num" aria-hidden="true">I</span>
+        <h2>O que é</h2>
+      </header>
+      <div class="cards">
+        <article class="card">
+          <h3>Aprende a casa</h3>
+          <p>Modelos de peça, banco de teses e o piso de citação do próprio escritório.</p>
+        </article>
+        <article class="card">
+          <h3>Lê e fundamenta</h3>
+          <p>Ata, documento, laudo, contestação e acórdão viram dados. Cada citação se ancora nos autos.</p>
+        </article>
+        <article class="card">
+          <h3>Escreve e confere</h3>
+          <p>Memória de cálculo, pedido fechando com o fato e <code>.docx</code> no estilo da casa.</p>
+        </article>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="band" id="jurisprudencia">
-  <div class="wrap">
-    <p class="section-mark mono">§ 04 — jurisprudência viva</p>
-    <h2 class="h2">Coleta contínua das fontes oficiais.</h2>
-    <p class="lede lede--narrow">
-      Catorze jobs mantêm as fontes do vertical trabalhista atualizadas — súmulas,
-      orientações jurisprudenciais, temas repetitivos, acórdãos, legislação e convenções
-      coletivas — com data de coleta e controle de vigência. A peça cita o que está valendo
-      na data em que é escrita; outra matéria entra com o seu próprio conjunto de fontes.
-    </p>
-    <ul class="sources">
-      <li><span class="mono">TST</span> súmulas, orientações jurisprudenciais, teses e temas repetitivos</li>
-      <li><span class="mono">TRT-3</span> jurisprudência regional e súmulas do tribunal</li>
-      <li><span class="mono">STF</span> decisões e temas de repercussão</li>
-      <li><span class="mono">Planalto</span> legislação e redação vigente da CLT</li>
-      <li><span class="mono">MTE · Mediador</span> convenções e acordos coletivos registrados</li>
-      <li><span class="mono">Sindicatos</span> instrumentos coletivos por categoria</li>
-      <li><span class="mono">DJEN</span> comunicações de ato processual, deduplicadas por ato e não por publicação</li>
-      <li><span class="mono">PJe</span> consulta de autos e intimações</li>
-    </ul>
-  </div>
-</section>
-<section class="band" id="garantias">
-  <div class="wrap">
-    <p class="section-mark mono">§ 05 — garantias</p>
-    <h2 class="h2">Quinze gates entre a redação e o protocolo.</h2>
-    <p class="lede lede--narrow">
-      Antes de o .docx ser gerado, a peça passa por um protocolo de conferências. Seis delas
-      bloqueiam a entrega; as outras avisam e ficam registradas. Modelo que escreve bonito e
-      cita errado não serve para protocolar — e é exatamente esse erro que o protocolo existe
-      para pegar.
-    </p>
-    <ul class="gates">
-        <li class="gate gate--block">
-          <span class="gate__flag">bloqueia</span>
-          <span class="gate__name mono">conferência documental</span>
-          <span class="gate__text">Cada fato afirmado na peça tem documento correspondente na pasta do caso.</span>
+  <section class="sec" id="garantias">
+    <div class="shell">
+      <header class="sec__head">
+        <span class="num" aria-hidden="true">II</span>
+        <h2>Garantias</h2>
+      </header>
+      <p class="sec__note">
+        Antes de o .docx ser gerado, a peça passa por conferências. As abaixo bloqueiam a
+        entrega; as demais avisam e ficam registradas.
+      </p>
+      <ul class="gates">
+        <li>
+          <span class="flag">bloqueia</span>
+          <b>conferência documental</b>
+          <span class="gates__text">todo fato tem documento na pasta</span>
         </li>
-        <li class="gate gate--block">
-          <span class="gate__flag">bloqueia</span>
-          <span class="gate__name mono">fechamento fato ↔ pedido</span>
-          <span class="gate__text">Todo pedido nasce de um fato narrado; todo fato narrado sustenta um pedido.</span>
+        <li>
+          <span class="flag">bloqueia</span>
+          <b>fato ↔ pedido</b>
+          <span class="gates__text">todo pedido nasce de um fato narrado</span>
         </li>
-        <li class="gate gate--block">
-          <span class="gate__flag">bloqueia</span>
-          <span class="gate__name mono">status do verbete</span>
-          <span class="gate__text">Súmula, orientação e tema citados precisam estar em vigor.</span>
+        <li>
+          <span class="flag">bloqueia</span>
+          <b>status do verbete</b>
+          <span class="gates__text">súmula e tema citados têm de estar em vigor</span>
         </li>
-        <li class="gate gate--block">
-          <span class="gate__flag">bloqueia</span>
-          <span class="gate__name mono">vigência das citações</span>
-          <span class="gate__text">Toda citação carrega teor oficial e data de verificação.</span>
+        <li>
+          <span class="flag">bloqueia</span>
+          <b>vigência da citação</b>
+          <span class="gates__text">teor oficial conferido na data da peça</span>
         </li>
-        <li class="gate gate--block">
-          <span class="gate__flag">bloqueia</span>
-          <span class="gate__name mono">teses por perfil</span>
-          <span class="gate__text">A tese escolhida é compatível com o perfil do caso, não com o caso vizinho.</span>
+        <li>
+          <span class="flag">bloqueia</span>
+          <b>teses por perfil</b>
+          <span class="gates__text">a tese é do caso, não do caso vizinho</span>
         </li>
-        <li class="gate gate--block">
-          <span class="gate__flag">bloqueia</span>
-          <span class="gate__name mono">.docx entregue</span>
-          <span class="gate__text">A peça só é dada como pronta quando o arquivo final existe e foi registrado.</span>
+        <li>
+          <span class="flag">bloqueia</span>
+          <b>.docx entregue</b>
+          <span class="gates__text">a peça só está pronta quando o arquivo existe</span>
         </li>
-    </ul>
-    <p class="footnote">
-      Os demais módulos avisam sem bloquear: trecho fora do slot previsto, pontos do acórdão
-      não enfrentados, coerência entre memória de cálculo e regra aplicada, entre outros. A
-      seleção de convenção coletiva é relatório de leitura, não gate: informa sem reprovar.
-    </p>
-  </div>
-</section>
-
-<section class="band" id="operacao">
-  <div class="wrap">
-    <p class="section-mark mono">§ 06 — operação</p>
-    <h2 class="h2">O que o escritório toca no dia a dia.</h2>
-    <div class="grid-3">
-      <article class="card">
-        <h3 class="card__title">Cálculo e prazo</h3>
-        <p class="card__text">Prazo e prescrição conforme a matéria — bienal e quinquenal no trabalhista —, rito, correção, juros e honorários, com memória de cálculo conferida contra a regra aplicada, inclusive para impugnar cálculo alheio.</p>
-      </article>
-      <article class="card">
-        <h3 class="card__title">Intimações e pauta</h3>
-        <p class="card__text">Leitura do diário por ato, com as publicações irmãs tratadas como uma só, briefing do dia, intimações pendentes e agenda de prazos.</p>
-      </article>
-      <article class="card">
-        <h3 class="card__title">Documento final</h3>
-        <p class="card__text">Exportação .docx com os estilos do escritório, redlining sobre documento alheio e leitura de acórdão para extrair o que foi decidido ponto a ponto.</p>
-      </article>
+      </ul>
+      <p class="line line--muted">citação inventada é o erro que essas conferências existem para pegar</p>
     </div>
-    <div class="split">
-      <div class="split__col">
-        <h3 class="h3">Onde roda</h3>
-        <p class="body">
-          Servidor MCP local, índice vetorial local. O advogado fala em linguagem natural na
-          ferramenta que já usa e o sistema aciona o comando, o gate ou a consulta certa por
-          trás.
-        </p>
-      </div>
-      <div class="split__col">
-        <h3 class="h3">Integrações</h3>
-        <p class="body">
-          Consulta de autos e sessão autorizada no PJe por certificado do escritório;
-          comunicação processual pelo diário eletrônico; banco de jurisprudência próprio,
-          atualizado por agendador.
-        </p>
+  </section>
+
+  <section class="sec sec--last" id="direcao">
+    <div class="shell">
+      <header class="sec__head">
+        <span class="num" aria-hidden="true">III</span>
+        <h2>Para onde vamos</h2>
+      </header>
+      <div class="cards cards--three">
+        <article class="card">
+          <h3>Outras matérias</h3>
+          <p>O que muda por área são os modelos de peça e as fontes oficiais — não o motor.</p>
+        </article>
+        <article class="card">
+          <h3>Outros escritórios</h3>
+          <p>Parametrizado por escritório, com isolamento entre clientes como requisito de entrada.</p>
+        </article>
+        <article class="card">
+          <h3>Só entra o que foi medido</h3>
+          <p>Recurso novo de modelo fica desligado até o delta aparecer no conjunto congelado.</p>
+        </article>
       </div>
     </div>
-  </div>
-</section>
-<section class="band" id="isolamento">
-  <div class="wrap">
-    <p class="section-mark mono">§ 07 — isolamento</p>
-    <h2 class="h2">Dado de cliente não vira dado de treino.</h2>
-    <p class="lede lede--narrow">
-      O sistema roda dentro da rede do escritório e o acervo fica onde sempre esteve. O que a
-      engenharia faz é garantir que um caso não vaze para o outro — nem no índice de busca,
-      nem no exemplo que virou teste, nem na sugestão que o modelo devolve para a peça.
-    </p>
-    <ul class="checks">
-      <li>Acervo, pastas de cliente e saídas de rodada ficam fora do versionamento — por
-      construção, não por disciplina de quem commita.</li>
-      <li>Exemplos, testes e documentos de referência usam dados pseudonimizados.</li>
-      <li>Detector de contaminação entre clientes roda no pipeline e reprova a rodada quando
-      um caso aparece no lugar do outro.</li>
-      <li>O conjunto congelado de avaliação fica fora do alcance do redator: o modelo não
-      enxerga o gabarito contra o qual é medido.</li>
-      <li>Indexação, busca e servidor de ferramentas rodam localmente.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="band" id="direcao">
-  <div class="wrap">
-    <p class="section-mark mono">§ 08 — para onde vamos</p>
-    <h2 class="h2">A mesma engenharia, outras matérias e outros escritórios.</h2>
-    <p class="lede lede--narrow">
-      O clone está de pé no contencioso trabalhista — fontes do TST e do TRT, peças dessa
-      área, um escritório real usando. O que queremos construir em cima disso:
-    </p>
-    <ul class="checks">
-      <li><strong>Outras matérias.</strong> Estágio, artefato e gate não sabem de direito
-      trabalhista — o que é específico mora nos modelos de peça e nas fontes. A próxima área
-      entra pela mesma espinha, com os seus próprios modelos e o seu próprio acervo de
-      fundamentos.</li>
-      <li><strong>Outros escritórios.</strong> O sistema é parametrizado por escritório —
-      identificação, áreas, comarca, raiz do acervo e pasta de entrega. Multiplicar isso
-      significa tratar isolamento entre clientes como requisito de entrada, não como
-      recurso que se adiciona depois.</li>
-      <li><strong>Só entra o que foi medido.</strong> Recurso novo de modelo — reranking,
-      ajuste de embeddings, mudança de recuperação — fica desligado até o delta aparecer no
-      conjunto congelado. Vale para o que já existe e para o que vem.</li>
-      <li><strong>Menos atrito na ponta.</strong> O advogado descreve o caso em linguagem
-      natural; onde cada arquivo mora, qual estágio roda e qual gate reprova não é problema
-      dele.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="band band--last" id="codigo">
-  <div class="wrap">
-    <p class="section-mark mono">§ 09 — engenharia aberta</p>
-    <h2 class="h2">Arquitetura escrita, decisão registrada.</h2>
-    <div class="split split--wide">
-      <div class="split__col">
-        <p class="body">
-          O sistema é documentado como software: arquitetura de estágios e contratos de dados,
-          registros de decisão para o que não é óbvio, runbook de operação para quando algo
-          falha no meio de um prazo. Sete agentes e dez skills compõem o repertório do
-          advogado; trinta tipos de peça saem da mesma espinha.
-        </p>
-        <p class="body">
-          Licenciado sob AGPL-3.0-or-later, com as licenças de terceiros inventariadas.
-        </p>
-      </div>
-      <dl class="matrix matrix--plain">
-        <div class="matrix__row"><dt class="mono">30</dt><dd>tipos de peça, do mandado de segurança ao contrato de honorários</dd></div>
-        <div class="matrix__row"><dt class="mono">7</dt><dd>agentes especializados por grupo de peça</dd></div>
-        <div class="matrix__row"><dt class="mono">10</dt><dd>skills reusáveis entre agentes</dd></div>
-        <div class="matrix__row"><dt class="mono">24</dt><dd>ferramentas expostas por MCP</dd></div>
-      </dl>
-    </div>
-
-    <div class="cta">
-      <div class="cta__text">
-        <h3 class="h3">Quer ver por dentro?</h3>
-        <p class="body">
-          Código, documentação de arquitetura e registros de decisão ficam nos repositórios
-          da organização. Acesso sob conversa — é software de escritório, com dado de
-          escritório.
-        </p>
-      </div>
-      <a class="btn btn--primary" href="https://github.com/Procurar">github.com/Procurar</a>
-    </div>
-  </div>
-</section>
+  </section>
 </main>
 
-<footer class="footer">
-  <div class="wrap footer__inner">
-    <div class="footer__brand">
-      <svg class="seal" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-<circle cx="32" cy="32" r="25" fill="none" stroke="currentColor" stroke-width="1.5"/>
-<circle cx="32" cy="32" r="20.5" fill="none" stroke="currentColor" stroke-width="0.75" opacity="0.55"/>
-<text x="32" y="43.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="31" fill="currentColor">P</text>
-</svg>
-      <span class="brand__name">Procurar</span>
-    </div>
-    <p class="footer__note">
-      Automação de peças para escritórios de advocacia. Ferramenta de apoio: a
-      responsabilidade técnica pela peça protocolada é sempre de quem a assina.
-    </p>
-    <p class="footer__legal mono">AGPL-3.0-or-later · © 2026 Procurar</p>
+<footer class="foot">
+  <div class="shell foot__grid">
+    <p class="foot__brand">Procurar</p>
+    <p class="foot__note">Ferramenta de apoio: a responsabilidade técnica pela peça protocolada é de quem a assina.</p>
+    <p class="foot__legal">afa7789@gmail.com · AGPL-3.0-or-later</p>
   </div>
 </footer>
 </body>

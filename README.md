@@ -1,30 +1,31 @@
 # procurar.github.io
 
-Página institucional da organização [Procurar](https://github.com/Procurar),
-publicada em <https://procurar.github.io/> pelo GitHub Pages a partir deste
-repositório (`main`, raiz).
+Página institucional da [Procurar](https://github.com/Procurar), publicada em
+<https://procurar.github.io/> pelo GitHub Pages a partir deste repositório
+(`main`, raiz).
+
+## A tese da página
+
+Um **clone do advogado, por escritório**. O que o sistema aprende — modelos de
+peça, teses, treinamento e acervo — pertence a cada cliente; a engenharia que
+sustenta o clone é a mesma. Trabalhista é o vertical do MVP, não o escopo.
+
+Não publicar aqui: estágios, artefatos internos, nomes de gates e qualquer
+número de inventário do motor. Isso é know-how, não argumento de venda.
 
 ## Como editar
 
-Site estático, sem build: editar o arquivo e commitar em `main` publica direto.
+Site estático, sem build e sem JavaScript: editar e commitar em `main` publica.
 
 | Arquivo | O que é |
 |---|---|
-| `index.html` | a página inteira (uma só, com âncoras `#gargalo`, `#pipeline`, `#inteligencia`, `#jurisprudencia`, `#garantias`, `#operacao`, `#isolamento`, `#direcao`, `#codigo`) |
-| `assets/styles.css` | tokens de cor, tipografia, layout e adaptação a telas estreitas |
-| `assets/fonts/*.woff2` | Newsreader, Instrument Serif e IBM Plex Mono (subset latino, self-hosted) |
+| `index.html` | a página inteira (âncoras `#oque`, `#garantias`, `#direcao`) |
+| `assets/styles.css` | tokens de cor, tipografia, grades e adaptação a telas estreitas |
+| `assets/fonts/newsreader-normal-400_700.woff2` | única família, subset latino, self-hosted |
 | `assets/seal.svg` | favicon e monograma |
-| `assets/og.png` | imagem de compartilhamento (1200×630) |
+| `assets/og.png` | imagem de compartilhamento (1200x630) |
 
-## Posicionamento
-
-A página apresenta o Procurar como um clone do advogado: o motor (estágios,
-artefatos e gates) não tem matéria embutida; o que muda por área são os modelos
-de peça e as fontes oficiais. O contencioso trabalhista é o MVP em produção e é
-o vertical usado como exemplo concreto nas seções de pipeline e jurisprudência.
-
-Ao mudar o sistema no repositório `engine`, conferir se os números desta página
-(estágios, gates, jobs, pacotes de ML, tipos de peça) continuam verdadeiros.
+Uma família tipográfica, uma ação (e-mail), nenhum gradiente, nenhum menu.
 
 ## Rodar localmente
 
